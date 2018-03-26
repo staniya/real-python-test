@@ -6,7 +6,7 @@ import sqlite3
 
 # create a new database if the database doesn't already exist
 conn = sqlite3.connect("new.db")
-
+# I can create a database in memory only using conn = sqlite3.connect(":memory:")
 
 # get a cursor object used to execute SQL commands
 cursor = conn.cursor()
