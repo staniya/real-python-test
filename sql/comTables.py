@@ -3,9 +3,9 @@ import sqlite3
 
 with sqlite3.connect("cars.db") as connection:
     c = connection.cursor()
-
-    c.execute("""CREATE TABLE orders
-    (Make TEXT, Model TEXT, Order_Date TEXT)""")
+    #
+    # c.execute("""CREATE TABLE orders
+    # (Make TEXT, Model TEXT, Order_Date TEXT)""")
 
     cars = [
         ('Honda', '640d', '2017-03-05'),
@@ -25,19 +25,19 @@ with sqlite3.connect("cars.db") as connection:
         ('Ford', 'beta', '1800-03-07')
     ]
 
-    c.executemany("INSERT INTO order VALUES(?,?,?)", cars)
+    c.executemany("INSERT INTO orders VALUES(?,?,?)", cars)
 
     c.execute("""
     SELECT DISTINCT inventory.Make, inventory.Model, inventory.Quantity, orders.Order_Date 
-    FROM inventory, orders 
-    WHERE inventory.Model = orders.Model 
+    FROM inventory INNER JOIN orders 
+    ON inventory.Model = orders.Model 
     ORDER by inventory.Model 
     ASC""")
 
     rows = c.fetchall()
 
     for r in rows:
-        print("Make:", r[0]),
-        print("Model:", r[1]),
-        print("\nQuantity", r[2]),
-        print("\nOrder dates", r[3])
+        print("Make + Model: " + r[0] + r[1])
+        print("Quantity: " + str(r[2]))
+        print("Order dates: " + r[3])
+        print("------------------------")
