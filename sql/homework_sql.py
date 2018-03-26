@@ -25,7 +25,7 @@ with sqlite3.connect("cars.db") as connection:
 with sqlite3.connect("cars.db") as connection:
     c = connection.cursor()
 
-    c.execute("SELECT * from inventory WHERE make = 'Ford'")
+    c.execute("SELECT * from inventory WHERE make='Ford'")
 
     # fetchall() retrieves all records from the query
     rows = c.fetchall()
