@@ -11,10 +11,14 @@ with sqlite3.connect("new.db") as connection:
     # open the csv file and assign it to a variable
     employees = csv.reader(open("employees.csv", "rU"))
 
-    # # create a new table called employees
-    # c.execute("""CREATE TABLE employees
-    # (firstname TEXT, lastname TEXT)""")
+    try:
+        # create a new table called employees
+        c.execute("""CREATE TABLE employees
+        (firstname TEXT, lastname TEXT)""")
 
-    # insert data into table
-    c.executemany("INSERT INTO employees"
-                  "(firstname, lastname) values(?,?)", employees)
+        # insert data into table
+        c.executemany("INSERT INTO employees"
+                      "(firstname, lastname) values(?,?)", employees)
+
+    except sqlite3.OperationalError:
+        print("Oops! Something went wrong. Try again...")
