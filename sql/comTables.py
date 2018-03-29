@@ -3,9 +3,8 @@ import sqlite3
 
 with sqlite3.connect("cars.db") as connection:
     c = connection.cursor()
-    #
-    # c.execute("""CREATE TABLE orders
-    # (Make TEXT, Model TEXT, Order_Date TEXT)""")
+    c.execute("""CREATE TABLE orders
+    (Make TEXT, Model TEXT, Order_Date TEXT)""")
 
     cars = [
         ('Honda', '640d', '2017-03-05'),
