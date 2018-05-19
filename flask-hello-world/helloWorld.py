@@ -14,7 +14,7 @@ app.config["DEBUG"] = True
 @app.route("/hello")
 # define the view using a function, which returns a string
 def hello_world():
-    return "Hello, World!"
+    return "Hello, World!?!?!?!?"
 
 
 # dynamic route
