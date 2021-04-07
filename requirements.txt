@@ -12,7 +12,7 @@ binaryornot==0.4.4
 blinker==1.4
 bonjour-py==0.3
 boto==2.48.0
-bottle==0.12.13
+bottle==0.12.19
 certifi==2018.1.18
 cffi==1.9.1
 chardet==3.0.4
